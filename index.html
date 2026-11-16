@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#09090c">
+  <meta name="description" content="NEXUS Gaming Command Center — your gaming universe in one place.">
+  <title>NEXUS — Gaming Command Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#dashboard" aria-label="NEXUS home">
+        <span class="brand-mark"><i></i><i></i><i></i></span>
+        <span>NEXUS<span class="brand-sub">COMMAND CENTER</span></span>
+      </a>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <button class="nav-item active" data-page="dashboard"><span class="nav-icon">◈</span>Dashboard</button>
+        <button class="nav-item" data-page="library"><span class="nav-icon">▦</span>Game library <span class="nav-count" id="libraryCount">6</span></button>
+        <button class="nav-item" data-page="performance"><span class="nav-icon">⌁</span>Performance</button>
+        <button class="nav-item" data-page="news"><span class="nav-icon">▤</span>Gaming news</button>
+        <button class="nav-item" data-page="setup"><span class="nav-icon">▣</span>My setup</button>
+      </nav>
+      <div class="side-label side-label-lower">PREFERENCES</div>
+      <nav class="nav-list">
+        <button class="nav-item" data-page="settings"><span class="nav-icon">⚙</span>Settings</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="status-card"><span class="status-dot"></span><div><strong>All systems ready</strong><small>Local dashboard online</small></div></div>
+        <div class="profile"><div class="avatar">NX</div><div><strong>Player One</strong><small>Level 28 · Explorer</small></div><button class="more-btn" title="Profile options">···</button></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-menu icon-button" id="mobileMenu" aria-label="Open navigation">☰</button>
+        <div class="breadcrumb"><span>WORKSPACE</span><b>/</b><strong id="pageCrumb">DASHBOARD</strong></div>
+        <div class="top-actions">
+          <div class="live-pill"><span class="status-dot"></span> SYSTEM ONLINE</div>
+          <button class="icon-button" id="quickSearch" aria-label="Focus search">⌕</button>
+          <button class="icon-button" id="themeToggle" aria-label="Toggle theme">☼</button>
+        </div>
+      </header>
+
+      <section class="page active-page" id="page-dashboard">
+        <div class="welcome-row">
+          <div><div class="eyebrow"><span class="eyebrow-line"></span> YOUR GAMING UNIVERSE</div><h1>Command <span>Center.</span></h1><p class="muted">Everything you need. One place to play.</p></div>
+          <div class="date-chip"><span class="tiny-dot"></span><span id="currentDate">YOUR DASHBOARD</span></div>
+        </div>
+        <div class="hero-panel">
+          <div class="hero-grid"></div><div class="hero-content">
+            <div class="hero-tag"><span class="pulse-dot"></span> FEATURED GAME</div>
+            <h2>ENTER THE<br><span>ARENA.</span></h2>
+            <p>Your next adventure is waiting. Track your games, monitor your setup, and stay ahead of the competition.</p>
+            <button class="primary-btn" data-goto="library">EXPLORE LIBRARY <span>↗</span></button>
+          </div>
+          <div class="hero-art" aria-hidden="true"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="hero-core">N<span>X</span></div><div class="hero-cross">+</div><div class="hero-coordinate">NEXUS // 01</div></div>
+          <div class="hero-bottom"><span>PLAY SMARTER. GO FURTHER.</span><span>EST. 2026&nbsp; / &nbsp;NEXUS SYSTEMS</span></div>
+        </div>
+
+        <div class="section-heading"><div><div class="eyebrow">AT A GLANCE</div><h2>System overview</h2></div><span class="subtle-label">LIVE DEMO DATA</span></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>GAMES IN LIBRARY</span><span class="stat-symbol">▦</span></div><div class="stat-value" id="statGames">06</div><div class="stat-foot"><span class="red-text">+2</span> recently added</div><div class="stat-line"><i style="width:72%"></i></div></article>
+          <article class="stat-card"><div class="stat-top"><span>PLAY TIME</span><span class="stat-symbol">◷</span></div><div class="stat-value">128<span class="stat-unit">h</span></div><div class="stat-foot">Across your game collection</div><div class="stat-line"><i style="width:58%"></i></div></article>
+          <article class="stat-card"><div class="stat-top"><span>AVG. FPS</span><span class="stat-symbol">⌁</span></div><div class="stat-value"><span id="avgFps">144</span><span class="stat-unit">FPS</span></div><div class="stat-foot"><span class="green-text">● Smooth</span> simulated reading</div><div class="stat-line"><i style="width:86%"></i></div></article>
+          <article class="stat-card"><div class="stat-top"><span>ACHIEVEMENTS</span><span class="stat-symbol">◇</span></div><div class="stat-value">34<span class="stat-unit">/50</span></div><div class="stat-foot">68% completion rate</div><div class="stat-line"><i style="width:68%"></i></div></article>
+        </div>
+
+        <div class="dashboard-columns">
+          <section class="content-panel">
+            <div class="panel-heading"><div><div class="eyebrow">PICK UP WHERE YOU LEFT OFF</div><h3>Recently played</h3></div><button class="text-btn" data-goto="library">VIEW ALL ↗</button></div>
+            <div class="recent-list" id="recentList"></div>
+          </section>
+          <section class="content-panel performance-mini">
+            <div class="panel-heading"><div><div class="eyebrow">HARDWARE SNAPSHOT</div><h3>Performance</h3></div><span class="mini-live"><i></i> DEMO</span></div>
+            <div class="mini-metric"><div><span>FPS</span><strong id="miniFps">144</strong></div><div class="mini-chart" id="miniChart"></div></div>
+            <div class="meter-row"><div><span>CPU LOAD</span><b id="cpuText">42%</b></div><div class="meter"><i id="cpuMeter" style="width:42%"></i></div></div>
+            <div class="meter-row"><div><span>GPU LOAD</span><b id="gpuText">67%</b></div><div class="meter"><i id="gpuMeter" style="width:67%"></i></div></div>
+            <button class="outline-btn full-btn" data-goto="performance">OPEN PERFORMANCE LAB</button>
+          </section>
+        </div>
+      </section>
+
+      <section class="page" id="page-library">
+        <div class="page-intro"><div class="eyebrow">YOUR COLLECTION</div><h1>Game <span>library.</span></h1><p class="muted">All your worlds, ready when you are.</p></div>
+        <div class="library-toolbar"><label class="search-box"><span>⌕</span><input id="gameSearch" type="search" placeholder="Search your games..." autocomplete="off"></label><div class="filter-group" id="gameFilters"><button class="filter-btn selected" data-filter="All">All games</button><button class="filter-btn" data-filter="Action">Action</button><button class="filter-btn" data-filter="Adventure">Adventure</button><button class="filter-btn" data-filter="Racing">Racing</button></div></div>
+        <div class="library-summary"><span id="resultsCount">6 GAMES</span><span>COLLECTION STATUS <b class="green-text">● SYNCED LOCALLY</b></span></div>
+        <div class="game-grid" id="gameGrid"></div>
+      </section>
+
+      <section class="page" id="page-performance">
+        <div class="page-intro"><div class="eyebrow">HARDWARE TELEMETRY</div><h1>Performance <span>lab.</span></h1><p class="muted">A simulated system monitor for your command center.</p></div>
+        <div class="notice"><span>ⓘ</span><div><strong>Demo simulator</strong><p>These values are generated for display and do not read your computer's actual hardware or in-game FPS.</p></div></div>
+        <div class="performance-grid">
+          <div class="content-panel fps-panel"><div class="panel-heading"><div><div class="eyebrow">FRAME RATE SIMULATION</div><h3>FPS monitor</h3></div><span class="mini-live"><i></i> RUNNING</span></div><div class="fps-number"><strong id="bigFps">144</strong><span>FPS</span></div><div class="chart-wrap"><div class="chart-labels"><span>180</span><span>120</span><span>60</span><span>0</span></div><canvas id="fpsCanvas" aria-label="Simulated FPS chart"></canvas></div><div class="chart-footer"><span><i class="legend-dot"></i> FRAME RATE</span><span id="fpsRange">MIN 132 · MAX 158</span></div><div class="control-row"><label for="fpsMode">SIMULATION MODE</label><select id="fpsMode"><option value="balanced">Balanced</option><option value="performance">Performance</option><option value="quality">Quality</option></select><button class="primary-btn compact" id="refreshFps">REFRESH ↻</button></div></div>
+          <div class="content-panel hardware-panel"><div class="panel-heading"><div><div class="eyebrow">RESOURCE USAGE</div><h3>System load</h3></div></div><div class="hardware-item"><div class="hardware-title"><span>CPU UTILIZATION</span><strong id="cpuBig">42%</strong></div><div class="meter large"><i id="cpuBigMeter" style="width:42%"></i></div><small>Processor load · simulated</small></div><div class="hardware-item"><div class="hardware-title"><span>GPU UTILIZATION</span><strong id="gpuBig">67%</strong></div><div class="meter large"><i id="gpuBigMeter" style="width:67%"></i></div><small>Graphics load · simulated</small></div><div class="hardware-item"><div class="hardware-title"><span>MEMORY</span><strong>8.2 / 16 GB</strong></div><div class="meter large"><i style="width:51%"></i></div><small>Memory allocation · sample value</small></div><div class="hardware-footer"><span class="status-dot"></span> SIMULATOR ACTIVE</div></div>
+        </div>
+      </section>
+
+      <section class="page" id="page-news">
+        <div class="page-intro"><div class="eyebrow">THE LATEST FROM THE GRID</div><h1>Gaming <span>intel.</span></h1><p class="muted">A sample news feed layout for your gaming updates.</p></div>
+        <div class="news-feature"><div class="news-feature-art"><span class="feature-stamp">NEXUS<br>REPORT</span><div class="feature-orbit"></div></div><div class="news-feature-copy"><div class="news-meta"><span>FEATURED</span><span>•</span><span>EDITOR'S PICK</span></div><h2>The next generation of gaming starts here.</h2><p>Build your own hub for release announcements, patch notes, esports results and the stories shaping your favorite games.</p><button class="outline-btn" id="newsExplore">EXPLORE YOUR FEED ↗</button></div></div>
+        <div class="section-heading"><div><div class="eyebrow">FROM THE COMMUNITY</div><h2>Latest updates</h2></div><span class="subtle-label">SAMPLE ARTICLES</span></div>
+        <div class="news-grid">
+          <article class="news-card"><div class="news-art art-one"><span>PATCH<br>NOTES</span></div><div class="news-card-copy"><div class="news-meta">UPDATE <span>•</span> 4 MIN READ</div><h3>What makes a great game update?</h3><p>New content, balanced gameplay and quality-of-life changes can refresh a favorite title.</p><button class="read-more" data-article="A great game update balances new content, gameplay improvements, bug fixes and quality-of-life changes.">READ SUMMARY ↗</button></div></article>
+          <article class="news-card"><div class="news-art art-two"><span>ESPORTS<br>ZONE</span></div><div class="news-card-copy"><div class="news-meta">ESPORTS <span>•</span> 6 MIN READ</div><h3>Inside the competitive mindset</h3><p>Consistency, teamwork and smart practice matter just as much as quick reactions.</p><button class="read-more" data-article="Competitive improvement comes from deliberate practice, teamwork, reviewing decisions and taking breaks to stay focused.">READ SUMMARY ↗</button></div></article>
+          <article class="news-card"><div class="news-art art-three"><span>SETUP<br>GUIDE</span></div><div class="news-card-copy"><div class="news-meta">HARDWARE <span>•</span> 5 MIN READ</div><h3>Build a setup that works for you</h3><p>Comfort, airflow and a balanced hardware budget are the foundations of a good setup.</p><button class="read-more" data-article="Start with a comfortable desk and chair, good airflow, reliable peripherals and a balanced PC budget. Upgrade based on the games and tasks you actually use.">READ SUMMARY ↗</button></div></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-setup">
+        <div class="page-intro"><div class="eyebrow">YOUR BATTLE STATION</div><h1>My <span>setup.</span></h1><p class="muted">A showcase of your current and planned gaming gear.</p></div>
+        <div class="setup-banner"><div><div class="eyebrow">PLAYER CONFIGURATION / 001</div><h2>BUILT TO <span>PLAY.</span></h2><p>A clean, focused space for every session.</p></div><div class="setup-emblem">NX</div></div>
+        <div class="section-heading"><div><div class="eyebrow">HARDWARE PROFILE</div><h2>Gear overview</h2></div><button class="text-btn" id="editSetup">EDIT SETUP ✎</button></div>
+        <div class="gear-grid" id="gearGrid">
+          <article class="gear-card"><span class="gear-icon">▣</span><div><small>PROCESSOR</small><h3>AMD Ryzen 5 5600G</h3><p>6 cores · 12 threads</p></div><span class="gear-tag">PLANNED</span></article>
+          <article class="gear-card"><span class="gear-icon">◫</span><div><small>GRAPHICS</small><h3>Radeon Vega 7</h3><p>Integrated graphics</p></div><span class="gear-tag">PLANNED</span></article>
+          <article class="gear-card"><span class="gear-icon">▤</span><div><small>MEMORY</small><h3>16 GB DDR4</h3><p>3200 MHz · Dual channel</p></div><span class="gear-tag">PLANNED</span></article>
+          <article class="gear-card"><span class="gear-icon">▱</span><div><small>DISPLAY</small><h3>144 Hz Monitor</h3><p>High refresh rate</p></div><span class="gear-tag">CURRENT</span></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-settings">
+        <div class="page-intro"><div class="eyebrow">PERSONALIZE YOUR SPACE</div><h1>System <span>settings.</span></h1><p class="muted">Make NEXUS feel like yours.</p></div>
+        <div class="settings-layout"><div class="content-panel settings-panel"><div class="panel-heading"><div><div class="eyebrow">APPEARANCE</div><h3>Interface</h3></div></div><div class="setting-row"><div><strong>Crimson glow</strong><p>Enable the signature neon accents.</p></div><label class="switch"><input type="checkbox" id="glowToggle" checked><span></span></label></div><div class="setting-row"><div><strong>Compact cards</strong><p>Reduce spacing across dashboard cards.</p></div><label class="switch"><input type="checkbox" id="compactToggle"><span></span></label></div><div class="setting-row"><div><strong>Reduce animations</strong><p>Use fewer interface transitions.</p></div><label class="switch"><input type="checkbox" id="motionToggle"><span></span></label></div><div class="setting-row"><div><strong>Theme</strong><p>Switch between dark and light appearance.</p></div><button class="outline-btn" id="settingsTheme">TOGGLE THEME</button></div></div><div class="content-panel settings-panel"><div class="panel-heading"><div><div class="eyebrow">LOCAL DATA</div><h3>Dashboard controls</h3></div></div><div class="setting-row"><div><strong>Reset demo data</strong><p>Restore the sample game collection.</p></div><button class="danger-btn" id="resetData">RESET</button></div><div class="setting-row"><div><strong>About NEXUS</strong><p>Gaming Command Center · Version 1.0</p></div><span class="gear-tag">V1.0.0</span></div></div></div>
+      </section>
+
+      <footer class="footer"><span>© 2026 NEXUS SYSTEMS</span><span>DESIGNED FOR THE NEXT LEVEL <b>◆</b></span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <dialog class="modal" id="gameModal"><form method="dialog"><button class="modal-close" aria-label="Close">×</button></form><div class="modal-art" id="modalArt"></div><div class="modal-content"><div class="eyebrow" id="modalGenre">GAME DETAILS</div><h2 id="modalTitle">Game title</h2><p id="modalDescription"></p><div class="modal-stats"><span>STATUS <b id="modalStatus">INSTALLED</b></span><span>PLAY TIME <b id="modalHours">12 HOURS</b></span></div><button class="primary-btn" id="launchGame">SET AS CURRENT GAME ↗</button></div></dialog>
+  <dialog class="modal small-modal" id="articleModal"><form method="dialog"><button class="modal-close" aria-label="Close">×</button></form><div class="eyebrow">NEXUS BRIEFING</div><h2>Article summary</h2><p id="articleText"></p></dialog>
+  <dialog class="modal small-modal" id="setupModal"><form method="dialog"><button class="modal-close" aria-label="Close">×</button></form><div class="eyebrow">PLAYER CONFIGURATION</div><h2>Edit your setup</h2><label class="form-label">Processor<input id="editCpu" value="AMD Ryzen 5 5600G"></label><label class="form-label">Graphics<input id="editGpu" value="Radeon Vega 7"></label><label class="form-label">Memory<input id="editRam" value="16 GB DDR4"></label><label class="form-label">Display<input id="editDisplay" value="144 Hz Monitor"></label><button class="primary-btn" id="saveSetup">SAVE CONFIGURATION ✓</button></dialog>
+  <script src="script.js"></script>
+</body>
+</html>
